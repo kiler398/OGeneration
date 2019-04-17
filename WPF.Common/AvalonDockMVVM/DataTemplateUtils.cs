@@ -13,6 +13,7 @@ namespace WPF.Common.AvalonDockMVVM
         /// </summary>
         public static DataTemplate FindDataTemplate(Type type, FrameworkElement element)
         {
+
             var dataTemplate = element.TryFindResource(new DataTemplateKey(type)) as DataTemplate;
             if (dataTemplate != null)
             {
