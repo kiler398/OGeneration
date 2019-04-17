@@ -1,0 +1,42 @@
+﻿<Window x:Class="OGeneration.View.Forms.AddEditModuleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OGeneration.View.Forms"
+        mc:Ignorable="d"
+        Title="Add/Edit Project Folder" Height="476" Width="488">
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="130"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="25"/>
+            <ColumnDefinition  Width="1*"/>
+            <ColumnDefinition  Width="25"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="名称：" Grid.Column="1"  Grid.Row="1"  />
+        <TextBox  Grid.Column="1"  Grid.Row="2"  />
+        <Label Content="描述：" Grid.Column="1"  Grid.Row="4"  />
+        <TextBox  Grid.Column="1"  Grid.Row="5"  />
+        <Label Content="用户覆盖数据：" Grid.Column="1"  Grid.Row="7"  />
+        <TextBox  Grid.Column="1"  Grid.Row="8"  />
+        <CheckBox  Grid.Column="1"  Grid.Row="10" Margin="2" VerticalAlignment="Center" Content="覆盖保存数据到默认配置" />
+        <StackPanel Grid.Column="1"  Grid.Row="12" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="确认" Width="80" Margin="5" />
+            <Button Content="取消" Width="80" Margin="5" />
+        </StackPanel>
+    </Grid>
+</Window>

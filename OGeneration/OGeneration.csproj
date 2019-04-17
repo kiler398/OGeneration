@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C047E789-661D-4BAB-B588-CBA1AD6DDE97}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OGeneration</RootNamespace>
+    <AssemblyName>OGeneration</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="UserControls\DocumentOverviewPaneView.xaml.cs">
+      <DependentUpon>DocumentOverviewPaneView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OpenDocumentsPaneView.xaml.cs">
+      <DependentUpon>OpenDocumentsPaneView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\AboutBoxWindow.xaml.cs">
+      <DependentUpon>AboutBoxWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\AddDbTargetMappingDialogWindow.xaml.cs">
+      <DependentUpon>AddDbTargetMappingDialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\AddEditModuleWindow.xaml.cs">
+      <DependentUpon>AddEditModuleWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\AddEditSavedObjectWindow.xaml.cs">
+      <DependentUpon>AddEditSavedObjectWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\AddLanguageMappingDialogWindow.xaml.cs">
+      <DependentUpon>AddLanguageMappingDialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\ApplicationReleasesWindow.xaml.cs">
+      <DependentUpon>ApplicationReleasesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\ConsoleFormWindow.xaml.cs">
+      <DependentUpon>ConsoleFormWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\DbTargetMappingsWindow.xaml.cs">
+      <DependentUpon>DbTargetMappingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\DefaultPropertiesWindow.xaml.cs">
+      <DependentUpon>DefaultPropertiesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\DefaultSettingsDialogWindow.xaml.cs">
+      <DependentUpon>DefaultSettingsDialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\ErrorDetailWindow.xaml.cs">
+      <DependentUpon>ErrorDetailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\ErrorsFormWindow.xaml.cs">
+      <DependentUpon>ErrorsFormWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\GeneratedFilesFormWindow.xaml.cs">
+      <DependentUpon>GeneratedFilesFormWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\GlobalUserMetaDataWindow.xaml.cs">
+      <DependentUpon>GlobalUserMetaDataWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\GotoWindow.xaml.cs">
+      <DependentUpon>GotoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\LanguageMappingsWindow.xaml.cs">
+      <DependentUpon>LanguageMappingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\MetaDataBrowserWindow.xaml.cs">
+      <DependentUpon>MetaDataBrowserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\MetaPropertiesWindow.xaml.cs">
+      <DependentUpon>MetaPropertiesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\ProjectBrowserWindow.xaml.cs">
+      <DependentUpon>ProjectBrowserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\TemplateBrowserWindow.xaml.cs">
+      <DependentUpon>TemplateBrowserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\TemplateEditorWindow.xaml.cs">
+      <DependentUpon>TemplateEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\TestConnectionFormWindow.xaml.cs">
+      <DependentUpon>TestConnectionFormWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\UserMetaDataWindow.xaml.cs">
+      <DependentUpon>UserMetaDataWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\ViewSavedInputWindow.xaml.cs">
+      <DependentUpon>ViewSavedInputWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\WebTemplateLibraryWindow.xaml.cs">
+      <DependentUpon>WebTemplateLibraryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PasswordWindow.xaml.cs">
+      <DependentUpon>PasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="UserControls\DocumentOverviewPaneView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\OpenDocumentsPaneView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\OMeteBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ExceptionDialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\AboutBoxWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\AddDbTargetMappingDialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\AddEditModuleWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\AddEditSavedObjectWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\AddLanguageMappingDialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\ApplicationReleasesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\ConsoleFormWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\DbTargetMappingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\DefaultPropertiesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\DefaultSettingsDialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\ErrorDetailWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\ErrorsFormWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\GeneratedFilesFormWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\GlobalUserMetaDataWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\GotoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\LanguageMappingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\MetaDataBrowserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\MetaPropertiesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\ProjectBrowserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\TemplateBrowserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\TemplateEditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\TestConnectionFormWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\UserMetaDataWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\ViewSavedInputWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\WebTemplateLibraryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserControls\OMeteBrowser.xaml.cs">
+      <DependentUpon>OMeteBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ExceptionDialogWindow.xaml.cs">
+      <DependentUpon>ExceptionDialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\PasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Resource Include="Icons\MainWindow.ico" />
+    <Content Include="Settings\CSharp.INI">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Castle.Core">
+      <Version>4.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="Castle.Windsor">
+      <Version>5.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="CommonServiceLocator">
+      <Version>2.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="estebano.ScintillaNET.WPF">
+      <Version>2.6.0</Version>
+    </PackageReference>
+    <PackageReference Include="Extended.Wpf.Toolkit">
+      <Version>3.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="jacobslusser.ScintillaNET.Signed">
+      <Version>3.6.3</Version>
+    </PackageReference>
+    <PackageReference Include="log4net">
+      <Version>2.0.8</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.SDK.Expression.Blend">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmLight">
+      <Version>5.4.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="RestSharp">
+      <Version>106.6.9</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\script_stamp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\diskette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\application_form.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\control_play_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\folders_explorer.png" />
+    <Resource Include="Images\folder_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\smartart_organization_chart_rh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\property_export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\application_from_storage.png" />
+    <Resource Include="Images\application_xp_terminal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\database_table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\database_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\table_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\table_sort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gear_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bullet_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\table_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\odbs_database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\script_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\page_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WPF.Common\WPF.Common.csproj">
+      <Project>{560b12b2-6d61-456d-839c-e05f129ed273}</Project>
+      <Name>WPF.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DefaultLayoutFile.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Settings\DbTargets.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Settings\DefaultSettings.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Settings\Languages.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Settings\MyGeneration.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Settings\ScintillaNET.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

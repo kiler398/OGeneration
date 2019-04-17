@@ -1,0 +1,32 @@
+<DockingManager version="1.3.0">
+  <ResizingPanel ResizeWidth="*" ResizeHeight="*" EffectiveSize="0,0" Orientation="Horizontal">
+
+ 
+    <DockablePane ResizeWidth="200" ResizeHeight="*" EffectiveSize="120,373" ID="879ACCE7-B71F-4F79-BEF5-A168F8D62DC2" Anchor="Left" IsAutoHidden="false" />
+    <ResizingPanel ResizeWidth="236" ResizeHeight="*" EffectiveSize="236,373" Orientation="Vertical">
+ 
+      <DockablePane ResizeWidth="0.58*" ResizeHeight="0.58*" EffectiveSize="236,212" ID="FA44DD99-E1B0-4FC2-A838-5B600F138624" Anchor="Left" IsAutoHidden="false">
+        <DockableContent Name="openDocumentsPane1" FloatingWindowSize="250,400" ChildIndex="0" Width="200" Height="373" Anchor="Left" State="Docked" />
+      </DockablePane>
+      <DockablePane ResizeWidth="0.42*" ResizeHeight="0.42*" EffectiveSize="236,155" ID="10289DD1-582A-4F3D-A9F7-3ABDA31AAC1E" Anchor="Left" IsAutoHidden="false">
+        <DockableContent Name="documentOverviewPane1" FloatingWindowSize="250,400" ChildIndex="0" Width="200" Height="373" Anchor="Left" State="Docked" ContainerPaneID="879ACCE7-B71F-4F79-BEF5-A168F8D62DC2" />
+      </DockablePane>
+    </ResizingPanel>
+    
+    
+    <DocumentPane IsMain="true" ResizeWidth="*" ResizeHeight="*" EffectiveSize="518,373" />
+
+
+    <DockablePane ResizeWidth="200" ResizeHeight="*" EffectiveSize="200,373" ID="2f212239-a87d-485d-a023-0e10f73d0165" Anchor="Right" IsAutoHidden="false" />
+    <ResizingPanel ResizeWidth="236" ResizeHeight="*" EffectiveSize="236,373" Orientation="Vertical">
+      <DockablePane ResizeWidth="0.58*" ResizeHeight="0.58*" EffectiveSize="236,212" ID="bff05ba4-c356-4957-9f1d-01d2eb284696" Anchor="Right" IsAutoHidden="false">
+        <DockableContent Name="openDocumentsPane" FloatingWindowSize="250,400" ChildIndex="0" Width="200" Height="373" Anchor="Right" State="Docked" />
+      </DockablePane>
+      <DockablePane ResizeWidth="0.42*" ResizeHeight="0.42*" EffectiveSize="236,155" ID="4b5483f3-8b02-438d-b263-e6736f0d3709" Anchor="Right" IsAutoHidden="false">
+        <DockableContent Name="documentOverviewPane" FloatingWindowSize="250,400" ChildIndex="0" Width="200" Height="373" Anchor="Right" State="Docked" ContainerPaneID="2f212239-a87d-485d-a023-0e10f73d0165" />
+      </DockablePane>
+    </ResizingPanel>
+  </ResizingPanel>
+  <Hidden />
+  <Windows />
+</DockingManager>

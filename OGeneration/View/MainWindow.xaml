@@ -1,0 +1,373 @@
+﻿<Window x:Class="OGeneration.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SampleApp"
+        xmlns:ad="clr-namespace:AvalonDock;assembly=AvalonDock"
+        xmlns:ViewModels="clr-namespace:WPF.Common.ViewModels;assembly=WPF.Common"
+        xmlns:AvalonDockMVVM="clr-namespace:WPF.Common.AvalonDockMVVM;assembly=WPF.Common"
+        xmlns:userControls="clr-namespace:OGeneration.UserControls"
+        Title="{Binding Title}" 
+        mc:Ignorable="d"
+        x:Name="mainWindow"  Icon="../Icons/MainWindow.ico"  Height="768" Width="1024"  WindowStartupLocation="CenterScreen" WindowState="Normal" >
+    <Window.Resources>
+
+        <RoutedUICommand x:Key="Commands.NewFile" />
+        <RoutedUICommand x:Key="Commands.OpenFile" />
+        <RoutedUICommand x:Key="Commands.SaveFile" />
+        <RoutedUICommand x:Key="Commands.SaveFileAs" />
+        <RoutedUICommand x:Key="Commands.SaveAllFiles" />
+        <RoutedUICommand x:Key="Commands.CloseFile" />
+        <RoutedUICommand x:Key="Commands.CloseAllFiles" />
+        <RoutedUICommand x:Key="Commands.ShowAllPanes" />
+        <RoutedUICommand x:Key="Commands.HideAllPanes" />
+        <RoutedUICommand x:Key="Commands.Exit" />
+
+
+ 
+ 
+ 
+ 
+
+        <!-- 
+        Data template for displaying tabbed documents.
+        This is really simple they are just represented by an AvalonDock
+        DocumentContent that contains a simple WPF TextBox.
+        -->
+        <DataTemplate
+            DataType="{x:Type ViewModels:TextFileDocumentViewModel}"
+            >
+            <ad:DocumentContent
+                Title="{Binding Title}"      
+                ToolTip="{Binding ToolTip}"
+                >
+                <TextBox
+                    Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap"
+                    AcceptsReturn="True"
+                    VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" />
+            </ad:DocumentContent>
+        </DataTemplate>
+
+        <!--
+        The DataTemplate for the 'Open Documents' pane.
+        This uses an AvalonDock DockableContent that contains an instance of the
+        OpenDocumentPaneView user control.
+        -->
+        <DataTemplate
+            DataType="{x:Type ViewModels:OpenDocumentsPaneViewModel}"
+            >
+            <ad:DockableContent
+                x:Name="openDocumentsPane"
+                Title="Open Documents"
+                AvalonDockMVVM:AvalonDockHost.IsPaneVisible="{Binding IsVisible}"
+                >
+                <userControls:OpenDocumentsPaneView />
+            </ad:DockableContent>
+        </DataTemplate>
+
+        <!-- 
+        The DataTemplate for the 'Document Overview' pane.
+        This uses an AvalonDock DockableContent that contains an instance of the 
+        DocumentOverviewView user control.
+        -->
+        <DataTemplate
+            DataType="{x:Type ViewModels:DocumentOverviewPaneViewModel}"
+            >
+            <ad:DockableContent
+                x:Name="documentOverviewPane"
+                Title="Document Overview"
+                AvalonDockMVVM:AvalonDockHost.IsPaneVisible="{Binding IsVisible}"
+                >
+                <userControls:DocumentOverviewPaneView />
+            </ad:DockableContent>
+        </DataTemplate>
+
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding 
+            Command="{StaticResource Commands.NewFile}"
+            Executed="NewFile_Executed"
+            />
+        <CommandBinding 
+            Command="{StaticResource Commands.OpenFile}"
+            Executed="OpenFile_Executed"
+            />
+        <CommandBinding 
+            Command="{StaticResource Commands.SaveFile}"
+            Executed="SaveFile_Executed"
+            />
+        <CommandBinding 
+            Command="{StaticResource Commands.SaveFileAs}"
+            Executed="SaveFileAs_Executed"
+            />
+        <CommandBinding 
+            Command="{StaticResource Commands.SaveAllFiles}"
+            Executed="SaveAllFiles_Executed"
+            />
+        <CommandBinding 
+            Command="{StaticResource Commands.CloseFile}"
+            Executed="CloseFile_Executed"
+            />
+        <CommandBinding 
+            Command="{StaticResource Commands.CloseAllFiles}"
+            Executed="CloseAllFiles_Executed"
+            />
+        <CommandBinding 
+            Command="{StaticResource Commands.ShowAllPanes}"
+            Executed="ShowAllPanes_Executed"
+            />
+        <CommandBinding 
+            Command="{StaticResource Commands.HideAllPanes}"
+            Executed="HideAllPanes_Executed"
+            />
+        <CommandBinding 
+            Command="{StaticResource Commands.Exit}"
+            Executed="Exit_Executed"
+            />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding
+			Key="N"
+            Modifiers="Control"
+			Command="{StaticResource Commands.NewFile}"
+			/>
+        <KeyBinding
+			Key="O"
+            Modifiers="Control"
+			Command="{StaticResource Commands.OpenFile}"
+			/>
+        <KeyBinding
+			Key="S"
+            Modifiers="Control"
+			Command="{StaticResource Commands.SaveFile}"
+			/>
+    </Window.InputBindings>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem
+                Header="文件(_F)"  
+                >
+                <MenuItem
+                    Header="新建文件(_N)"
+                    Command="{StaticResource Commands.NewFile}"
+                    />
+                <MenuItem
+                    Header="打开文件(_O)"
+                    Command="{StaticResource Commands.OpenFile}"
+                    />
+                <Separator />
+                <MenuItem
+                    Header="关闭文件(_C)"
+                    Command="{StaticResource Commands.CloseFile}"
+                    />
+                <MenuItem
+                    Header="关闭所有文件"
+                    Command="{StaticResource Commands.CloseAllFiles}"
+                    />
+                <Separator />
+                <MenuItem
+                    Header="保存文件(_S)" 
+                    Command="{StaticResource Commands.SaveFile}"
+                    />
+                <MenuItem
+                    Header="文件另存为(_A)"
+                    Command="{StaticResource Commands.SaveFileAs}"
+                    />
+                <MenuItem
+                    Header="保存所有文件"
+                    Command="{StaticResource Commands.SaveAllFiles}"
+                    />
+                <Separator />
+                <MenuItem
+                    Header="退出系统(_X)"
+                    Command="{StaticResource Commands.Exit}"
+                    />
+            </MenuItem>
+            <MenuItem
+                Header="视图(_V)"
+                >
+                <MenuItem
+                    Header="_Document Overview"
+                    IsChecked="{Binding DocumentOverviewPaneViewModel.IsVisible}"
+                    IsCheckable="True"
+                    />
+                <MenuItem
+                    Header="_Open Documents"
+                    IsChecked="{Binding OpenDocumentsPaneViewModel.IsVisible}"
+                    IsCheckable="True"
+                    />
+                <Separator />
+                <MenuItem
+                    Header="显示所有"
+                    Command="{StaticResource Commands.ShowAllPanes}"
+                    />
+                <MenuItem
+                    Header="隐藏所有"
+                    Command="{StaticResource Commands.HideAllPanes}"
+                    />
+            </MenuItem>
+            <MenuItem Header="编辑"></MenuItem>
+            <MenuItem Header="模版"></MenuItem>
+            <MenuItem Header="窗体" ItemsSource="{Binding Documents}">
+                <MenuItem.Resources>
+                    <DataTemplate
+                        DataType="{x:Type ViewModels:TextFileDocumentViewModel}"
+                    >
+                        <!-- The name of an open document. -->
+                        <TextBlock 
+                            Text="{Binding Title}" 
+                            ToolTip="{Binding ToolTip}"
+                        />
+                    </DataTemplate>
+                </MenuItem.Resources>
+            </MenuItem>
+            <MenuItem Header="插件"></MenuItem>
+            <MenuItem Header="帮助"></MenuItem>
+        </Menu>
+        <ToolBar  Grid.Row="1">
+            <Button ToolTip="新建文件" Command="{StaticResource Commands.NewFile}">
+                <Button.Content >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/page.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="打开文件" Command="{StaticResource Commands.OpenFile}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/folder.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="保存文件"  Command="{StaticResource Commands.SaveFile}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/diskette.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="Template Properties">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/application_form.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="Run">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/control_play_blue.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="TemplateExplorer">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/folders_explorer.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="Open Code Generate Folder">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/folder_go.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="Meta Browser">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/smartart_organization_chart_rh.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="Meta Properties">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/property_export.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="Language Mapping">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/application_form.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="Language Mapping">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/script_gear.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="Db Target Mapping">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/odbs_database.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="Setting">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/page_gear.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="Error">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/table_error.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="Error">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/application_xp_terminal.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="Error">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/gear_in.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="Error">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Images/database_go.png" Margin="3"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </ToolBar>
+
+        <AvalonDockMVVM:AvalonDockHost Grid.Row="2"
+            x:Name="avalonDockHost"
+            Panes="{Binding Panes}"
+            Documents="{Binding Documents}"
+            ActiveDocument="{Binding ActiveDocument}"
+            ActivePane="{Binding ActivePane}"
+            AvalonDockLoaded="avalonDockHost_AvalonDockLoaded"
+            DocumentClosing="avalonDockHost_DocumentClosing"
+        />
+
+        <StatusBar  Grid.Row="3">
+            <TextBlock Text="就绪"></TextBlock>
+        </StatusBar>
+
+
+    </Grid>
+</Window>
