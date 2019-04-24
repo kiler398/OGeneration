@@ -10,6 +10,6 @@ namespace MyGeneration
         ToolBar ToolStrip { get; }
         void ProcessAlert(IMyGenContent sender, string command, params object[] args);
         bool CanClose(bool allowPrevent);
-        DockContent DockContent { get; }
+        //DockContent DockContent { get; }
     }
 }

@@ -20,8 +20,8 @@ namespace MyGeneration
         IntPtr CreateDocument();
         void AddRefDocument(IntPtr pDoc);
         void ReleaseDocument(IntPtr pDoc);
-        void AssignCmdKey(System.Windows.Forms.Keys keyDefinition, uint sciCommand);
-        void ClearCmdKey(System.Windows.Forms.Keys keyDefinition);
+        //void AssignCmdKey(System.Windows.Forms.Keys keyDefinition, uint sciCommand);
+        //void ClearCmdKey(System.Windows.Forms.Keys keyDefinition);
         string GetText();
         int CodePage {set; }
         void SetFoldMarginColor(bool useSetting, Color back);
@@ -34,10 +34,10 @@ namespace MyGeneration
         void AddShortcuts(Window parentForm);
         void AddShortcuts(List<MenuItem> m);
         void AddShortcuts(List<Button> m);
-        void AddIgnoredKey(System.Windows.Forms.Shortcut shortcutkey);
-        void AddIgnoredKey(System.Windows.Forms.Keys shortcutkey);
+        //void AddIgnoredKey(System.Windows.Forms.Shortcut shortcutkey);
+        //void AddIgnoredKey(System.Windows.Forms.Keys shortcutkey);
         void ClearIgnoredKeys(); 
-        bool PreProcessMessage(ref Message m);
+        //bool PreProcessMessage(ref Message m);
         string Text { get; set; }
         void AddLastLineEnd();
         void StripTrailingSpaces();
@@ -78,7 +78,7 @@ namespace MyGeneration
         int Indent { get; set; }
         bool IsUseTabs { get; set; }
         bool IsHScrollBar { get; set; }
-        Scintilla.Enums.IndentationGuideType IndentationGuide { get; set; }
+        //Scintilla.Enums.IndentationGuideType IndentationGuide { get; set; }
         int HighlightGuide { get; set; }
         int CaretFore { get; set; }
         bool IsUsePalette { get; set; }

@@ -11,11 +11,11 @@ namespace MyGeneration
         void CreateDocument(params string[] args);
         bool IsDocumentOpen(string text, params IMyGenDocument[] docsToExclude);
         IMyGenDocument FindDocument(string text, params IMyGenDocument[] docsToExclude);
-        FindForm FindDialog { get; }
-        ReplaceForm ReplaceDialog { get; }
-        ScintillaConfigureDelegate ConfigureDelegate { get; }
+        //FindForm FindDialog { get; }
+        //ReplaceForm ReplaceDialog { get; }
+        //ScintillaConfigureDelegate ConfigureDelegate { get; }
         IZeusController ZeusController { get; }
-        DockPanel DockPanel { get; }
+        //DockPanel DockPanel { get; }
         void SendAlert(IMyGenContent sender, string command, params object[] args);
         object PerformMdiFuntion(IMyGenContent sender, string function, params object[] args);
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using OGeneration.ViewModel;
+using WPF.Common.ViewModels;
 
 namespace OGeneration.UserControls
 {
@@ -23,6 +26,25 @@ namespace OGeneration.UserControls
         public OMeteBrowser()
         {
             InitializeComponent();
+
+            var vm = new OMeteBrowserViewModel();
+
+            vm.TreeNodes = new ObservableCollection<TreeNodeModel>();
+
+            TreeNodeModel root = new TreeNodeModel();
+            
+
+
+
+            this.DataContext = vm;
+        }
+
+        public OMeteBrowserViewModel ViewModel
+        {
+            get
+            {
+                return (OMeteBrowserViewModel)this.DataContext;
+            }
         }
     }
 }

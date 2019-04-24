@@ -11,7 +11,6 @@ using CommonServiceLocator;
 using log4net;
 using log4net.Repository.Hierarchy;
 using OGeneration.View;
-using OGeneration.ViewModel;
 
 namespace OGeneration
 {

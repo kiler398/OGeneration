@@ -58,6 +58,7 @@
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\OpenDocumentsPaneViewModel.cs" />
     <Compile Include="ViewModels\TextFileDocumentViewModel.cs" />
+    <Compile Include="ViewModels\TreeNodeModel.cs" />
     <Compile Include="WindsorAdapter\WindsorServiceLocator.cs" />
   </ItemGroup>
   <ItemGroup>

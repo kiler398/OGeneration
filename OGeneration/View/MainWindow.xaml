@@ -3,146 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SampleApp"
-        xmlns:ad="clr-namespace:AvalonDock;assembly=AvalonDock"
-        xmlns:ViewModels="clr-namespace:WPF.Common.ViewModels;assembly=WPF.Common"
-        xmlns:AvalonDockMVVM="clr-namespace:WPF.Common.AvalonDockMVVM;assembly=WPF.Common"
+ 
         xmlns:userControls="clr-namespace:OGeneration.UserControls"
-        Title="{Binding Title}" 
+        xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+        Title="MyGeneration" 
         mc:Ignorable="d"
         x:Name="mainWindow"  Icon="../Icons/MainWindow.ico"  Height="768" Width="1024"  WindowStartupLocation="CenterScreen" WindowState="Normal" >
-    <Window.Resources>
-
-        <RoutedUICommand x:Key="Commands.NewFile" />
-        <RoutedUICommand x:Key="Commands.OpenFile" />
-        <RoutedUICommand x:Key="Commands.SaveFile" />
-        <RoutedUICommand x:Key="Commands.SaveFileAs" />
-        <RoutedUICommand x:Key="Commands.SaveAllFiles" />
-        <RoutedUICommand x:Key="Commands.CloseFile" />
-        <RoutedUICommand x:Key="Commands.CloseAllFiles" />
-        <RoutedUICommand x:Key="Commands.ShowAllPanes" />
-        <RoutedUICommand x:Key="Commands.HideAllPanes" />
-        <RoutedUICommand x:Key="Commands.Exit" />
-
-
  
- 
- 
- 
-
-        <!-- 
-        Data template for displaying tabbed documents.
-        This is really simple they are just represented by an AvalonDock
-        DocumentContent that contains a simple WPF TextBox.
-        -->
-        <DataTemplate
-            DataType="{x:Type ViewModels:TextFileDocumentViewModel}"
-            >
-            <ad:DocumentContent
-                Title="{Binding Title}"      
-                ToolTip="{Binding ToolTip}"
-                >
-                <TextBox
-                    Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap"
-                    AcceptsReturn="True"
-                    VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" />
-            </ad:DocumentContent>
-        </DataTemplate>
-
-        <!--
-        The DataTemplate for the 'Open Documents' pane.
-        This uses an AvalonDock DockableContent that contains an instance of the
-        OpenDocumentPaneView user control.
-        -->
-        <DataTemplate
-            DataType="{x:Type ViewModels:OpenDocumentsPaneViewModel}"
-            >
-            <ad:DockableContent
-                x:Name="openDocumentsPane"
-                Title="Open Documents"
-                AvalonDockMVVM:AvalonDockHost.IsPaneVisible="{Binding IsVisible}"
-                >
-                <userControls:OpenDocumentsPaneView />
-            </ad:DockableContent>
-        </DataTemplate>
-
-        <!-- 
-        The DataTemplate for the 'Document Overview' pane.
-        This uses an AvalonDock DockableContent that contains an instance of the 
-        DocumentOverviewView user control.
-        -->
-        <DataTemplate
-            DataType="{x:Type ViewModels:DocumentOverviewPaneViewModel}"
-            >
-            <ad:DockableContent
-                x:Name="documentOverviewPane"
-                Title="Document Overview"
-                AvalonDockMVVM:AvalonDockHost.IsPaneVisible="{Binding IsVisible}"
-                >
-                <userControls:DocumentOverviewPaneView />
-            </ad:DockableContent>
-        </DataTemplate>
-
-    </Window.Resources>
-    <Window.CommandBindings>
-        <CommandBinding 
-            Command="{StaticResource Commands.NewFile}"
-            Executed="NewFile_Executed"
-            />
-        <CommandBinding 
-            Command="{StaticResource Commands.OpenFile}"
-            Executed="OpenFile_Executed"
-            />
-        <CommandBinding 
-            Command="{StaticResource Commands.SaveFile}"
-            Executed="SaveFile_Executed"
-            />
-        <CommandBinding 
-            Command="{StaticResource Commands.SaveFileAs}"
-            Executed="SaveFileAs_Executed"
-            />
-        <CommandBinding 
-            Command="{StaticResource Commands.SaveAllFiles}"
-            Executed="SaveAllFiles_Executed"
-            />
-        <CommandBinding 
-            Command="{StaticResource Commands.CloseFile}"
-            Executed="CloseFile_Executed"
-            />
-        <CommandBinding 
-            Command="{StaticResource Commands.CloseAllFiles}"
-            Executed="CloseAllFiles_Executed"
-            />
-        <CommandBinding 
-            Command="{StaticResource Commands.ShowAllPanes}"
-            Executed="ShowAllPanes_Executed"
-            />
-        <CommandBinding 
-            Command="{StaticResource Commands.HideAllPanes}"
-            Executed="HideAllPanes_Executed"
-            />
-        <CommandBinding 
-            Command="{StaticResource Commands.Exit}"
-            Executed="Exit_Executed"
-            />
-    </Window.CommandBindings>
-    <Window.InputBindings>
-        <KeyBinding
-			Key="N"
-            Modifiers="Control"
-			Command="{StaticResource Commands.NewFile}"
-			/>
-        <KeyBinding
-			Key="O"
-            Modifiers="Control"
-			Command="{StaticResource Commands.OpenFile}"
-			/>
-        <KeyBinding
-			Key="S"
-            Modifiers="Control"
-			Command="{StaticResource Commands.SaveFile}"
-			/>
-    </Window.InputBindings>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -157,38 +24,38 @@
                 >
                 <MenuItem
                     Header="新建文件(_N)"
-                    Command="{StaticResource Commands.NewFile}"
+ 
                     />
                 <MenuItem
                     Header="打开文件(_O)"
-                    Command="{StaticResource Commands.OpenFile}"
+ 
                     />
                 <Separator />
                 <MenuItem
                     Header="关闭文件(_C)"
-                    Command="{StaticResource Commands.CloseFile}"
+ 
                     />
                 <MenuItem
                     Header="关闭所有文件"
-                    Command="{StaticResource Commands.CloseAllFiles}"
+ 
                     />
                 <Separator />
                 <MenuItem
                     Header="保存文件(_S)" 
-                    Command="{StaticResource Commands.SaveFile}"
+ 
                     />
                 <MenuItem
                     Header="文件另存为(_A)"
-                    Command="{StaticResource Commands.SaveFileAs}"
+ 
                     />
                 <MenuItem
                     Header="保存所有文件"
-                    Command="{StaticResource Commands.SaveAllFiles}"
+ 
                     />
                 <Separator />
                 <MenuItem
                     Header="退出系统(_X)"
-                    Command="{StaticResource Commands.Exit}"
+ 
                     />
             </MenuItem>
             <MenuItem
@@ -196,58 +63,48 @@
                 >
                 <MenuItem
                     Header="_Document Overview"
-                    IsChecked="{Binding DocumentOverviewPaneViewModel.IsVisible}"
+ 
                     IsCheckable="True"
                     />
                 <MenuItem
                     Header="_Open Documents"
-                    IsChecked="{Binding OpenDocumentsPaneViewModel.IsVisible}"
+ 
                     IsCheckable="True"
                     />
                 <Separator />
                 <MenuItem
                     Header="显示所有"
-                    Command="{StaticResource Commands.ShowAllPanes}"
+ 
                     />
                 <MenuItem
                     Header="隐藏所有"
-                    Command="{StaticResource Commands.HideAllPanes}"
+ 
                     />
             </MenuItem>
             <MenuItem Header="编辑"></MenuItem>
             <MenuItem Header="模版"></MenuItem>
-            <MenuItem Header="窗体" ItemsSource="{Binding Documents}">
-                <MenuItem.Resources>
-                    <DataTemplate
-                        DataType="{x:Type ViewModels:TextFileDocumentViewModel}"
-                    >
-                        <!-- The name of an open document. -->
-                        <TextBlock 
-                            Text="{Binding Title}" 
-                            ToolTip="{Binding ToolTip}"
-                        />
-                    </DataTemplate>
-                </MenuItem.Resources>
+            <MenuItem Header="窗体" >
+  
             </MenuItem>
             <MenuItem Header="插件"></MenuItem>
             <MenuItem Header="帮助"></MenuItem>
         </Menu>
         <ToolBar  Grid.Row="1">
-            <Button ToolTip="新建文件" Command="{StaticResource Commands.NewFile}">
+            <Button ToolTip="新建文件"  >
                 <Button.Content >
                     <StackPanel Orientation="Horizontal">
                         <Image Source="../Images/page.png" Margin="3"></Image>
                     </StackPanel>
                 </Button.Content>
             </Button>
-            <Button ToolTip="打开文件" Command="{StaticResource Commands.OpenFile}">
+            <Button ToolTip="打开文件" >
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="../Images/folder.png" Margin="3"></Image>
                     </StackPanel>
                 </Button.Content>
             </Button>
-            <Button ToolTip="保存文件"  Command="{StaticResource Commands.SaveFile}">
+            <Button ToolTip="保存文件"  >
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="../Images/diskette.png" Margin="3"></Image>
@@ -354,15 +211,23 @@
             </Button>
         </ToolBar>
 
-        <AvalonDockMVVM:AvalonDockHost Grid.Row="2"
-            x:Name="avalonDockHost"
-            Panes="{Binding Panes}"
-            Documents="{Binding Documents}"
-            ActiveDocument="{Binding ActiveDocument}"
-            ActivePane="{Binding ActivePane}"
-            AvalonDockLoaded="avalonDockHost_AvalonDockLoaded"
-            DocumentClosing="avalonDockHost_DocumentClosing"
-        />
+        <xcad:DockingManager x:Name="dockManager"  
+                             Grid.Row="2">
+            <xcad:LayoutRoot>
+                <xcad:LayoutPanel Orientation="Horizontal">
+                    <xcad:LayoutAnchorablePane Name="ToolsPane1" DockWidth="220">
+                        <xcad:LayoutAnchorable Title="元数据信息浏览器" CanDockAsTabbedDocument="False" CanFloat="False">
+                            <userControls:OMeteBrowser></userControls:OMeteBrowser>
+                        </xcad:LayoutAnchorable>
+                    </xcad:LayoutAnchorablePane>
+                    <xcad:LayoutDocumentPane/>
+                    <xcad:LayoutAnchorablePane Name="ToolsPane" DockWidth="110">
+                        <xcad:LayoutAnchorable Title="11222221" CanDockAsTabbedDocument="False"></xcad:LayoutAnchorable>
+                        <xcad:LayoutAnchorable Title="11222221" ></xcad:LayoutAnchorable>
+                    </xcad:LayoutAnchorablePane>
+                </xcad:LayoutPanel>
+            </xcad:LayoutRoot>
+        </xcad:DockingManager>
 
         <StatusBar  Grid.Row="3">
             <TextBlock Text="就绪"></TextBlock>

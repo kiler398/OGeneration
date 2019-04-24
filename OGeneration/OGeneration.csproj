@@ -55,12 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="UserControls\DocumentOverviewPaneView.xaml.cs">
-      <DependentUpon>DocumentOverviewPaneView.xaml</DependentUpon>
+    <Compile Include="Settings\DefaultSettings.cs" />
+    <Compile Include="UserControls\DbTargetMappings.xaml.cs">
+      <DependentUpon>DbTargetMappings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\OpenDocumentsPaneView.xaml.cs">
-      <DependentUpon>OpenDocumentsPaneView.xaml</DependentUpon>
+    <Compile Include="UserControls\LanguageMappings.xaml.cs">
+      <DependentUpon>LanguageMappings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\OMeteBrowserViewModel.cs" />
     <Compile Include="View\Forms\AboutBoxWindow.xaml.cs">
       <DependentUpon>AboutBoxWindow.xaml</DependentUpon>
     </Compile>
@@ -139,13 +141,13 @@
     <Compile Include="View\PasswordWindow.xaml.cs">
       <DependentUpon>PasswordWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="UserControls\DocumentOverviewPaneView.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="UserControls\DbTargetMappings.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\OpenDocumentsPaneView.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="UserControls\LanguageMappings.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\OMeteBrowser.xaml">
       <SubType>Designer</SubType>
@@ -301,6 +303,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Resource Include="Icons\MainWindow.ico" />
+    <Resource Include="Images\toolbar_refresh_16x16.bmp" />
+    <Resource Include="Images\refresh_all.png" />
+    <Resource Include="Images\page_delete.png" />
     <Content Include="Settings\CSharp.INI">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -318,14 +323,14 @@
     <PackageReference Include="CommonServiceLocator">
       <Version>2.0.4</Version>
     </PackageReference>
+    <PackageReference Include="Dirkster.AvalonDock">
+      <Version>3.5.0.2</Version>
+    </PackageReference>
     <PackageReference Include="estebano.ScintillaNET.WPF">
       <Version>2.6.0</Version>
     </PackageReference>
     <PackageReference Include="Extended.Wpf.Toolkit">
       <Version>3.5.0</Version>
-    </PackageReference>
-    <PackageReference Include="jacobslusser.ScintillaNET.Signed">
-      <Version>3.6.3</Version>
     </PackageReference>
     <PackageReference Include="log4net">
       <Version>2.0.8</Version>
@@ -405,15 +410,7 @@
   <ItemGroup>
     <Resource Include="Images\page_gear.png" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WPF.Common\WPF.Common.csproj">
-      <Project>{560b12b2-6d61-456d-839c-e05f129ed273}</Project>
-      <Name>WPF.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Resources\DefaultLayoutFile.xml" />
   </ItemGroup>
@@ -433,6 +430,16 @@
     <Content Include="Settings\ScintillaNET.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OGeneration.PluginInterfaces\OGeneration.PluginInterfaces.csproj">
+      <Project>{3A06E54A-23C8-4AEB-8C4E-CCB5559D9C09}</Project>
+      <Name>OGeneration.PluginInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WPF.Common\WPF.Common.csproj">
+      <Project>{560B12B2-6D61-456D-839C-E05F129ED273}</Project>
+      <Name>WPF.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

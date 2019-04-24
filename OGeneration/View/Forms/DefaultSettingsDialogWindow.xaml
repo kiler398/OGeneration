@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OGeneration.View.Forms"
         mc:Ignorable="d"
-        Title="DefaultSettingsDialogWindow" Height="450" Width="800">
+        Title="默认选项" Icon="../../Images/gear_in.png" Height="560.524" Width="808.108">
     <Grid>
-        
+
     </Grid>
 </Window>
