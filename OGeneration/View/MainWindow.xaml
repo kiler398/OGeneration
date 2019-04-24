@@ -221,9 +221,13 @@
                         </xcad:LayoutAnchorable>
                     </xcad:LayoutAnchorablePane>
                     <xcad:LayoutDocumentPane/>
-                    <xcad:LayoutAnchorablePane Name="ToolsPane" DockWidth="110">
-                        <xcad:LayoutAnchorable Title="11222221" CanDockAsTabbedDocument="False"></xcad:LayoutAnchorable>
-                        <xcad:LayoutAnchorable Title="11222221" ></xcad:LayoutAnchorable>
+                    <xcad:LayoutAnchorablePane Name="ToolsPane" DockWidth="260">
+                        <xcad:LayoutAnchorable Title="语言映射配置" CanDockAsTabbedDocument="False">
+                            <userControls:LanguageMappings></userControls:LanguageMappings>
+                        </xcad:LayoutAnchorable>
+                        <xcad:LayoutAnchorable Title="DbTarget映射配置" CanDockAsTabbedDocument="False">
+                            <userControls:DbTargetMappings></userControls:DbTargetMappings>
+                        </xcad:LayoutAnchorable>
                     </xcad:LayoutAnchorablePane>
                 </xcad:LayoutPanel>
             </xcad:LayoutRoot>

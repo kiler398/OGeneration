@@ -36,8 +36,8 @@
         </ToolBar>
         <DataGrid Grid.Row="2"  AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn  Header="Form"/>
-                <DataGridTextColumn   Header="To"/>
+                <DataGridTextColumn Width="1*"  Header="Form"/>
+                <DataGridTextColumn  Width="1*"   Header="To"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
